@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hello', function () {
+    //eturn "Hello World";
+    return ['name'=>'world'];
+});
+
+Route::get('/hello/world', function () {
+    return "Hello World";
+});
+
+Route::get('/hello/{name}', function ($worldName) {
+    $worldName = ucwords($worldName);
+    return "Hello {$worldName}";
+});
+
+Route::get('/greet/{greetings}/{name}', function ($greetings, $worldName) {
+    $greetings = ucwords($greetings);
+    $worldName = ucwords($worldName);
+    return "{$greetings} {$worldName}";
+});
+
