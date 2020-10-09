@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 
@@ -36,5 +37,10 @@ Route::get('/greet/{greetings}/{name}', function ($greetings, $worldName) {
     $greetings = ucwords($greetings);
     $worldName = ucwords($worldName);
     return "{$greetings} {$worldName}";
+});
+
+Route::post('/say', function ( Request $request ) {
+    $newName = $request->post('name');
+    echo "Hello {$newName}";
 });
 
