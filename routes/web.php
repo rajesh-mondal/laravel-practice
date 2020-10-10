@@ -1,8 +1,11 @@
 <?php
 
-use GuzzleHttp\Psr7\Request;
+//use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Client\Request as ClientRequest;
+use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Route;
 use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +42,7 @@ Route::get('/greet/{greetings}/{name}', function ($greetings, $worldName) {
     return "{$greetings} {$worldName}";
 });
 
-Route::post('/say', function ( Request $request ) {
+Route::post('/say', function (Request $request) {
     $newName = $request->post('name');
     echo "Hello {$newName}";
 });
