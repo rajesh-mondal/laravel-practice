@@ -27,14 +27,18 @@ Route::get('/hello', function () {
     return ['name'=>'world'];
 });
 
-Route::get('/hello/world', function () {
-    return "Hello World";
+Route::get('/hello/{world}', function ($world) {
+    //return "Hello World";
+    return view("info",[
+        'name'=>$world,
+        'time'=>time()
+    ]);
 });
 
-Route::get('/hello/{name}', function ($worldName) {
-    $worldName = ucwords($worldName);
-    return "Hello {$worldName}";
-});
+// Route::get('/hello/{name}', function ($worldName) {
+//     $worldName = ucwords($worldName);
+//     return "Hello {$worldName}";
+// });
 
 Route::get('/greet/{greetings}/{name}', function ($greetings, $worldName) {
     $greetings = ucwords($greetings);
