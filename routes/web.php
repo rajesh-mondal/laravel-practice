@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainController;
 //use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request as HttpRequest;
@@ -21,6 +22,9 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hello/world',[MainController::class,'sayHi']);
+Route::get('/sayname/{name}',[MainController::class,'sayName']);
 
 Route::get('/hello', function () {
     //eturn "Hello World";
