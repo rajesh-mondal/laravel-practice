@@ -6,15 +6,13 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    function sayHi(){
-        return "Hello World - from the Controller";
+    function main(){
+        return view("welcome");
     }
-
-    function sayName($name){
-        return "Hello {$name}";
+    function features(){
+        return view("features");
     }
-
-    function postRequest(Request $request){
-        $name = $request->post('name');
-    }
+    function contact(){
+        return view("contact");
+    }   
 }

@@ -19,10 +19,14 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get('/', [MainController::class,'main']);
+Route::get('/features', [MainController::class,'features']);
+Route::get('/contact', [MainController::class,'contact']);
+
 Route::get('/', function () {
     return view('welcome');
 });
-
+ 
 Route::get('/hello/world',[MainController::class,'sayHi']);
 Route::get('/sayname/{name}',[MainController::class,'sayName']);
 
