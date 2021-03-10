@@ -23,6 +23,7 @@ Route::get('/', [MainController::class,'main']);
 Route::get('/features', [MainController::class,'features']);
 Route::get('/contact', [MainController::class,'contact']);
 Route::get('/allPeople', [MainController::class,'allPeople']);
+Route::get('/test', [MainController::class,'testModel']);
 
 Route::get('/', function () {
     return view('welcome');
