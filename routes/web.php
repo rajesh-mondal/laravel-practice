@@ -22,8 +22,12 @@ Route::get('/hello', function() {
     return "Hello World";
 });
 
-Route::get('/hello/world', function() {
-    return "Hello World";
+Route::get('/hello/{world}', function($world) {
+    // return "Hello World";
+    return view("info",[
+        'name'=>$world,
+        'time'=>time()
+    ]);
 });
 
 Route::get('/hello/{name}', function($worldName) {
