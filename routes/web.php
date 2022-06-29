@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,4 +35,9 @@ Route::get('/greet/{greetings}/{name}', function($greetings, $worldName) {
     $greetings = ucwords($greetings);
     $worldName = ucwords($worldName);
     return "{$greetings} {$worldName}";
+});
+
+Route::post('/say', function(Request $request){
+    $newName = $request->post('name');
+    echo "Hello {$newName}";
 });
