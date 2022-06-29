@@ -16,3 +16,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hello', function() {
+    return "Hello World";
+});
+
+Route::get('/hello/world', function() {
+    return "Hello World";
+});
+
+Route::get('/hello/{name}', function($worldName) {
+    $worldName = ucwords($worldName);
+    return "Hello {$worldName}";
+});
+
+Route::get('/greet/{greetings}/{name}', function($greetings, $worldName) {
+    $greetings = ucwords($greetings);
+    $worldName = ucwords($worldName);
+    return "{$greetings} {$worldName}";
+});
