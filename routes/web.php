@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/hello/world','MainController@sayHi');
+Route::get('/hello/world',[MainController::class,'sayHi']);
+Route::get('/sayname/{name}',[MainController::class,'sayMyName']);
 
 Route::get('/hello', function() {
     return "Hello World";
