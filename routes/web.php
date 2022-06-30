@@ -19,34 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/hello/world','MainController@sayHi');
-Route::get('/hello/world',[MainController::class,'sayHi']);
-Route::get('/sayname/{name}',[MainController::class,'sayMyName']);
-
-Route::get('/hello', function() {
-    return "Hello World";
-});
-
-Route::get('/hello/{world}', function($world) {
-    // return "Hello World";
-    return view("info",[
-        'name'=>$world,
-        'time'=>time()
-    ]);
-});
-
-Route::get('/hello/{name}', function($worldName) {
-    $worldName = ucwords($worldName);
-    return "Hello {$worldName}";
-});
-
-Route::get('/greet/{greetings}/{name}', function($greetings, $worldName) {
-    $greetings = ucwords($greetings);
-    $worldName = ucwords($worldName);
-    return "{$greetings} {$worldName}";
-});
-
-Route::post('/say', function(Request $request){
-    $newName = $request->post('name');
-    echo "Hello {$newName}";
-});
+Route::get('/',[MainController::class,'main']);
+Route::get('/features',[MainController::class,'features']);
+Route::get('/contact',[MainController::class,'contact']);
