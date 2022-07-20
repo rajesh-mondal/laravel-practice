@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\People;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,5 +26,12 @@ class MainController extends Controller
                 ->orderby('id','desc')
                 ->limit(3)
                 ->get('id','name'));
+    }
+
+    function testmodel(){
+        // $people = People::all()->skip(1)->take(2);
+        // $people = People::find(1);
+        $people = People::whereEmail('johndoe@gmail.com')->first()->displayNameAndEmail();
+        return $people;
     }
 }
