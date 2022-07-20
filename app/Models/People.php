@@ -11,4 +11,8 @@ class People extends Model
     function displayNameAndEmail(){
         echo $this->name ." : ".$this->email; 
     }
+
+    function addJr(){
+        $this->name .= " Jr";
+    }
 }

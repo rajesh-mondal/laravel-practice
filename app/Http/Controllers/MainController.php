@@ -31,7 +31,17 @@ class MainController extends Controller
     function testmodel(){
         // $people = People::all()->skip(1)->take(2);
         // $people = People::find(1);
-        $people = People::whereEmail('johndoe@gmail.com')->first()->displayNameAndEmail();
+
+        // $people = People::whereEmail('johndoe@gmail.com')->first()->displayNameAndEmail();
+        // $people = People::find(1);
+        // $people->name = "John Devid";
+        // $people->save();
+        // $people = $people->fresh();
+        // return $people;
+
+        $people = People::find(1);
+        $people->addJr();
+        $people->fresh();
         return $people;
     }
 }
