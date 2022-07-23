@@ -39,9 +39,13 @@ class MainController extends Controller
         // $people = $people->fresh();
         // return $people;
 
+        // $people = People::find(1);
+        // $people->addJr();
+        // $people->fresh();
+        // return $people;
+
         $people = People::find(1);
-        $people->addJr();
-        $people->fresh();
-        return $people;
+        $posts = $people->posts;
+        return $posts->take(2);
     }
 }
