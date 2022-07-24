@@ -15,10 +15,14 @@ class FormController extends Controller
         $email = $request->post('email');
         $name = $request->post('name');
 
+        if(People::whereEmail($email)->count()==0){
+
         $person = new People();
         $person->name = $name;
         $person->email = $email;
         $person->save();
+        }
+        
         return redirect()->route("form.create");
     }
 }
