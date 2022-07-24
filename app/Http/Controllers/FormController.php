@@ -11,7 +11,14 @@ class FormController extends Controller
         return view("form");
     }
 
-    function saveForm(){
-        
+    function saveForm(Request $request){
+        $email = $request->post('email');
+        $name = $request->post('name');
+
+        $person = new People();
+        $person->name = $name;
+        $person->email = $email;
+        $person->save();
+        return redirect()->route("form.create");
     }
 }
